@@ -1,11 +1,13 @@
-public class Person {
+public class Person implements Payable, Comparable<Person> {
     private static int id = 1;
 
     private String name;
+
+    private int int_id;
     private String surname;
 
     public Person() {
-        this.id = id++;
+        this.int_id = id++;
     }
 
     public Person(String name, String surname) {
@@ -26,13 +28,28 @@ public class Person {
         return surname;
     }
     public int getId(){
-        return id;
+        return int_id;
     }
-     c
+    @Override
     public String toString() {
-        return id +" "+name+" "+surname;
+        return int_id +" "+name+" "+surname;
 
     }
+
+   public String  getPosition(){
+        return "Student";
+    }
+
+    public int compareTo(Person otherPerson)
+    {
+        return Double.compare(this.getPaymentAmount(), otherPerson.getPaymentAmount());
+    }
+    @Override
+    public double getPaymentAmount()
+    {
+        return 0;
+    }
+
 }
 
 
