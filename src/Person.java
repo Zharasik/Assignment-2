@@ -6,50 +6,60 @@ public class Person implements Payable, Comparable<Person> {
     private int int_id;
     private String surname;
 
+    // Default constructor
     public Person() {
         this.int_id = id++;
     }
 
+    // Parameterized constructor
     public Person(String name, String surname) {
         this();
         setName(name);
         setSurname(surname);
-
     }
 
-    public void setName(String name){
-        this.name=name;}
-    public String getName(){
+    // Setter and getter methods for name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
         return name;
     }
-    public void setSurname(String surname){
-        this.surname=surname;}
-    public String getSurname(){
+
+    // Setter and getter methods for surname
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getSurname() {
         return surname;
     }
-    public int getId(){
+
+    // Getter method for identification number
+    public int getId() {
         return int_id;
     }
+
+    // toString method for creating a string representation of the object
     @Override
     public String toString() {
-        return int_id +" "+name+" "+surname;
-
+        return int_id + " " + name + " " + surname;
     }
 
-   public String  getPosition(){
+    // getPosition method returning a fixed position "Student"
+    public String getPosition() {
         return "Student";
     }
 
-    public int compareTo(Person otherPerson)
-    {
+    // compareTo method for comparing Person objects based on payment amounts
+    public int compareTo(Person otherPerson) {
         return Double.compare(this.getPaymentAmount(), otherPerson.getPaymentAmount());
     }
+
+    // Default implementation of getPaymentAmount returning 0
     @Override
-    public double getPaymentAmount()
-    {
+    public double getPaymentAmount() {
         return 0;
     }
-
 }
-
-
